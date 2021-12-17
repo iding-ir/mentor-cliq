@@ -23,7 +23,7 @@ export const fetchEmployees = createAsyncThunk(
   }
 );
 
-export const employeesSlice = createSlice({
+export const slice = createSlice({
   name: "employees",
   initialState,
   reducers: {},
@@ -39,8 +39,8 @@ export const employeesSlice = createSlice({
   },
 });
 
-// export const {} = employeesSlice.actions;
+// export const {} = slice.actions;
 
 export const selectEmployees = (state: RootState) => state.employees.all;
 
-export default employeesSlice.reducer;
+export default slice.reducer;

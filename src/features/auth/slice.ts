@@ -26,7 +26,7 @@ export const signUp = createAsyncThunk("auth/signUp", async (data: any) => {
   return await getSignUp(data);
 });
 
-export const authSlice = createSlice({
+export const slice = createSlice({
   name: "auth",
   initialState,
   reducers: {},
@@ -59,8 +59,8 @@ export const authSlice = createSlice({
   },
 });
 
-// export const {} = authSlice.actions;
+// export const {} = slice.actions;
 
 export const selectAuth = (state: RootState) => state.auth;
 
-export default authSlice.reducer;
+export default slice.reducer;
