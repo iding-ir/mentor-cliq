@@ -6,9 +6,15 @@ const localization = {
     signOut: "Sign Out",
   },
   SignIn: {
-    username: "Username",
+    username: "Email",
     password: "Password",
     button: "Sign In",
+  },
+  SignUp: {
+    username: "Email",
+    password: "Password",
+    rePassword: "Repeat Password",
+    button: "Sign Up",
   },
   Home: {
     welcome: "Welcome",

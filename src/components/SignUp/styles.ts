@@ -2,9 +2,21 @@ import { Styles } from "../../types";
 
 export const styles: Styles = {
   SignUp: {
-    margin: "6rem auto",
-    textAlign: "center",
-    fontSize: "6rem",
-    color: (theme) => theme.palette.grey[500],
+    display: "flex",
+    flexDirection: "column",
+    width: "300px",
+    height: "100%",
+    margin: "0 auto",
+    justifyContent: "center",
+  },
+  wrapper: {
+    padding: "0 1rem",
+  },
+  field: {
+    margin: "1rem 0",
+  },
+  error: {
+    color: (theme) => theme.palette.error.main,
+    margin: "1rem 0",
   },
 };

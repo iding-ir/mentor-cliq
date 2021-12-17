@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
-import { getLogin, getLogout } from "./api";
+import { getSignIn, getSignOut, getSignUp } from "./api";
 
 export interface State {
   user: any;
@@ -14,12 +14,21 @@ const initialState: State = {
   status: "idle",
 };
 
-export const login = createAsyncThunk("auth/login", async () => {
-  return await getLogin();
+export const signIn = createAsyncThunk(
+  "auth/signIn",
+  async (data, thunkAPI) => {
+    return await getSignIn(data);
+  }
+);
+
+console.log(signIn);
+
+export const signOut = createAsyncThunk("auth/signOut", async () => {
+  return await getSignOut();
 });
 
-export const logout = createAsyncThunk("auth/logout", async () => {
-  return await getLogout();
+export const signUp = createAsyncThunk("auth/signUp", async () => {
+  return await getSignUp();
 });
 
 export const authSlice = createSlice({
@@ -28,21 +37,27 @@ export const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(login.pending, (state) => {
+      .addCase(signIn.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(login.fulfilled, (state, action) => {
+      .addCase(signIn.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.user = action.payload;
         state.isLoggedIn = true;
       })
-      .addCase(logout.pending, (state) => {
+      .addCase(signOut.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(logout.fulfilled, (state, action) => {
+      .addCase(signOut.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.user = {};
         state.isLoggedIn = false;
+      })
+      .addCase(signUp.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(signUp.fulfilled, (state, action) => {
+        state.status = "succeeded";
       });
   },
 });

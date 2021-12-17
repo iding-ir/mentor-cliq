@@ -1,7 +1,7 @@
 import { Styles } from "../../types";
 
 export const styles: Styles = {
-  Login: {
+  SignIn: {
     display: "flex",
     flexDirection: "column",
     width: "300px",

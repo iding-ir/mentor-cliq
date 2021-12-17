@@ -1,73 +1,67 @@
-import { useState } from "react";
-import { Navigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
+import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
-import { useTranslation } from "react-i18next";
-import Box from "@mui/material/Box";
+import { useForm } from "react-hook-form";
 
-import { login } from "../../features/auth/slice";
-import { useAuth } from "../../hooks/useAuth";
 import { styles } from "./styles";
+import { useAppDispatch } from "../../app/hooks";
+import { signIn } from "../../features/auth/slice";
 
-interface IProps {}
-
-const SignIn = (props: IProps) => {
-  const dispatch = useDispatch();
+const SignIn = () => {
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
-  const { auth } = useAuth();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: "all",
+  });
+  console.log(signIn);
 
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const onSubmit = (data: any) => dispatch(signIn());
 
-  const { isLoggedIn } = auth;
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Box sx={styles.SignIn}>
+        <Paper sx={styles.wrapper}>
+          <Box sx={styles.field}>
+            <TextField
+              label={t("SignIn.username")}
+              variant="outlined"
+              fullWidth
+              {...register("email", { required: true })}
+            />
 
-  return isLoggedIn ? (
-    <Navigate to="/" />
-  ) : (
-    <Box sx={styles.Login}>
-      <Paper sx={styles.wrapper}>
-        <Box sx={styles.field}>
-          <TextField
-            required
-            label={t("SignIn.username")}
-            variant="outlined"
-            fullWidth={true}
-            value={username}
-            onChange={(event) => {
-              setUsername(event.target.value);
-            }}
-          />
-        </Box>
+            {errors.email && (
+              <Box sx={styles.error}>This field is required</Box>
+            )}
+          </Box>
 
-        <Box sx={styles.field}>
-          <TextField
-            type="password"
-            required
-            label={t("SignIn.password")}
-            variant="outlined"
-            fullWidth={true}
-            value={password}
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
-          />
-        </Box>
+          <Box sx={styles.field}>
+            <TextField
+              type="password"
+              label={t("SignIn.password")}
+              variant="outlined"
+              fullWidth
+              {...register("password", { required: true })}
+            />
 
-        <Box sx={styles.field}>
-          <Button
-            variant="outlined"
-            fullWidth={true}
-            onClick={() => {
-              dispatch(login());
-            }}
-          >
-            {t("SignIn.button")}
-          </Button>
-        </Box>
-      </Paper>
-    </Box>
+            {errors.password && (
+              <Box sx={styles.error}>This field is required</Box>
+            )}
+          </Box>
+
+          <Box sx={styles.field}>
+            <Button type="submit" variant="outlined" fullWidth={true}>
+              {t("SignIn.button")}
+            </Button>
+          </Box>
+        </Paper>
+      </Box>
+    </form>
   );
 };
 
