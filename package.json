@@ -1,8 +1,34 @@
 {
   "name": "mentor-cliq",
   "version": "0.1.0",
+  "description": "MentorCliq.",
+  "keywords": [
+    "React",
+    "Typescript",
+    "MUI",
+    "redux",
+    "redux-toolkit"
+  ],
+  "author": {
+    "name": "Aydin Ghane Kh.",
+    "email": "aydin.ghane.kh@gmail.com",
+    "url": "http://iding.ir"
+  },
+  "license": "ISC",
+  "main": "./index",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iding-ir/mentor-cliq.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iding-ir/mentor-cliq/issues"
+  },
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@material-ui/icons": "^4.11.2",
+    "@mui/material": "^5.2.4",
     "@reduxjs/toolkit": "^1.7.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -12,6 +38,8 @@
     "@types/react": "^16.14.21",
     "@types/react-dom": "^16.9.14",
     "@types/react-redux": "^7.1.20",
+    "axios": "^0.24.0",
+    "convert-csv-to-json": "^1.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
