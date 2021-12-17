@@ -4,6 +4,7 @@ import Home from "../components/Home/Home";
 import SignIn from "../components/SingIn/SingIn";
 import SignUp from "../components/SignUp/SignUp";
 import SignOut from "../components/SignOut/SignOut";
+import Profile from "../components/Profile/Profile";
 
 export const routes: IRoutes = {
   home: {
@@ -39,6 +40,15 @@ export const routes: IRoutes = {
     element: <SignOut />,
     navbar: true,
     title: "Navbar.signOut",
+    showPrivate: true,
+    showPublic: false,
+  },
+  profile: {
+    key: "profile",
+    path: URLS.PROFILE,
+    element: <Profile />,
+    navbar: true,
+    title: "Navbar.profile",
     showPrivate: true,
     showPublic: false,
   },

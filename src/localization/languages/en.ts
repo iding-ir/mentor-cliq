@@ -4,6 +4,8 @@ const localization = {
     signIn: "Sign In",
     signUp: "Sign Up",
     signOut: "Sign Out",
+    profile: "Profile",
+    suggestions: "Suggestions",
   },
   SignIn: {
     username: "Email",
