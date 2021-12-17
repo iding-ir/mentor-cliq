@@ -1,10 +1,10 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 import { getEmployees } from "./api";
 
 export interface State {
   all: any[];
-  status: "idle" | "loading" | "failed";
+  status: "idle" | "loading" | "succeeded" | "failed";
 }
 
 const initialState: State = {
@@ -13,7 +13,7 @@ const initialState: State = {
 };
 
 export const fetchEmployees = createAsyncThunk(
-  "stories/getStories",
+  "employees/fetchEmployees",
   async () => {
     const data = await getEmployees();
 
@@ -33,13 +33,13 @@ export const employeesSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchEmployees.fulfilled, (state, action) => {
-        state.status = "idle";
+        state.status = "succeeded";
         state.all = action.payload;
       });
   },
 });
 
-export const {} = employeesSlice.actions;
+// export const {} = employeesSlice.actions;
 
 export const selectEmployees = (state: RootState) => state.employees.all;
 
