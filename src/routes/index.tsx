@@ -1,4 +1,5 @@
 import { IRoutes } from "../types";
+import * as URLS from "../constants/urls";
 import Home from "../components/Home/Home";
 import SignIn from "../components/SingIn/SingIn";
 import SignUp from "../components/SignUp/SignUp";
@@ -7,7 +8,7 @@ import SignOut from "../components/SignOut/SignOut";
 export const routes: IRoutes = {
   home: {
     key: "home",
-    path: "/",
+    path: URLS.HOME,
     element: <Home />,
     navbar: true,
     title: "Navbar.home",
@@ -16,7 +17,7 @@ export const routes: IRoutes = {
   },
   signIn: {
     key: "signIn",
-    path: "/sign-in",
+    path: URLS.SIGN_IN,
     element: <SignIn />,
     navbar: true,
     title: "Navbar.signIn",
@@ -25,7 +26,7 @@ export const routes: IRoutes = {
   },
   signUp: {
     key: "signUp",
-    path: "/sign-up",
+    path: URLS.SIGN_UP,
     element: <SignUp />,
     navbar: true,
     title: "Navbar.signUp",
@@ -34,7 +35,7 @@ export const routes: IRoutes = {
   },
   signOut: {
     key: "signOut",
-    path: "/sign-out",
+    path: URLS.SIGN_OUT,
     element: <SignOut />,
     navbar: true,
     title: "Navbar.signOut",

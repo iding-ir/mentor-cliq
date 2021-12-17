@@ -19,10 +19,15 @@ export const getSignOut = async () => {
   });
 };
 
-export const getSignUp = async () => {
+export const getSignUp = async (data: any) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve({});
+      console.log(data);
+
+      resolve({
+        username: "Guest",
+        email: "guest@iding.ir",
+      });
     }, 3000);
   });
 };

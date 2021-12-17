@@ -14,21 +14,16 @@ const initialState: State = {
   status: "idle",
 };
 
-export const signIn = createAsyncThunk(
-  "auth/signIn",
-  async (data, thunkAPI) => {
-    return await getSignIn(data);
-  }
-);
-
-console.log(signIn);
+export const signIn = createAsyncThunk("auth/signIn", async (data: any) => {
+  return await getSignIn(data);
+});
 
 export const signOut = createAsyncThunk("auth/signOut", async () => {
   return await getSignOut();
 });
 
-export const signUp = createAsyncThunk("auth/signUp", async () => {
-  return await getSignUp();
+export const signUp = createAsyncThunk("auth/signUp", async (data: any) => {
+  return await getSignUp(data);
 });
 
 export const authSlice = createSlice({
@@ -58,12 +53,14 @@ export const authSlice = createSlice({
       })
       .addCase(signUp.fulfilled, (state, action) => {
         state.status = "succeeded";
+        state.user = action.payload;
+        state.isLoggedIn = true;
       });
   },
 });
 
 // export const {} = authSlice.actions;
 
-export const selectUser = (state: RootState) => state.auth;
+export const selectAuth = (state: RootState) => state.auth;
 
 export default authSlice.reducer;
