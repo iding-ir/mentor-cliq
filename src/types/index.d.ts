@@ -6,7 +6,8 @@ export interface IRoute {
   path: string;
   element: ReactElement<any, string | JSXElementConstructor<any>>;
   navbar: boolean;
-  needsAuth?: boolean;
+  showPrivate: boolean;
+  showPublic: boolean;
   title?: string;
 }
 

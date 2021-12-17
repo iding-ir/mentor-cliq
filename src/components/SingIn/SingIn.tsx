@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import TextField from "@mui/material/TextField";
@@ -31,7 +31,7 @@ const SignIn = (props: IProps) => {
         <Box sx={styles.field}>
           <TextField
             required
-            label={t("login.username")}
+            label={t("SignIn.username")}
             variant="outlined"
             fullWidth={true}
             value={username}
@@ -45,7 +45,7 @@ const SignIn = (props: IProps) => {
           <TextField
             type="password"
             required
-            label={t("login.password")}
+            label={t("SignIn.password")}
             variant="outlined"
             fullWidth={true}
             value={password}
@@ -63,7 +63,7 @@ const SignIn = (props: IProps) => {
               dispatch(login());
             }}
           >
-            {t("login.button")}
+            {t("SignIn.button")}
           </Button>
         </Box>
       </Paper>

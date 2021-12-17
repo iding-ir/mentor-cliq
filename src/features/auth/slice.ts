@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
-import { getAuth } from "./api";
+import { getLogin, getLogout } from "./api";
 
 export interface State {
   user: any;
@@ -15,7 +15,11 @@ const initialState: State = {
 };
 
 export const login = createAsyncThunk("auth/login", async () => {
-  return await getAuth();
+  return await getLogin();
+});
+
+export const logout = createAsyncThunk("auth/logout", async () => {
+  return await getLogout();
 });
 
 export const authSlice = createSlice({
@@ -31,12 +35,20 @@ export const authSlice = createSlice({
         state.status = "succeeded";
         state.user = action.payload;
         state.isLoggedIn = true;
+      })
+      .addCase(logout.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(logout.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.user = {};
+        state.isLoggedIn = false;
       });
   },
 });
 
 // export const {} = authSlice.actions;
 
-export const selectUser = (state: RootState) => state.auth.user;
+export const selectUser = (state: RootState) => state.auth;
 
 export default authSlice.reducer;
