@@ -16,4 +16,7 @@ export const styles: Styles = {
       },
     },
   },
+  icon: {
+    minWidth: "unset",
+  },
 };

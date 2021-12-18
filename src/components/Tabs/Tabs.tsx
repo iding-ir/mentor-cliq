@@ -34,7 +34,7 @@ const Tabs = () => {
               navbar &&
               ((isLoggedIn && showPrivate) || (!isLoggedIn && showPublic)) && (
                 <ListItem button key={key}>
-                  <ListItemIcon>{icon}</ListItemIcon>
+                  <ListItemIcon sx={styles.icon}>{icon}</ListItemIcon>
 
                   <ListItemText sx={styles.link}>
                     <NavLink
