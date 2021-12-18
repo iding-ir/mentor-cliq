@@ -6,7 +6,7 @@
 
 ## Intro
 
-React and Redux Toolkit home assignment for [MentorcliQ](https://www.mentorcliq.com).
+React and Redux Toolkit technical assignment for [MentorcliQ](https://www.mentorcliq.com).
 
 ## Tech Stack
 
