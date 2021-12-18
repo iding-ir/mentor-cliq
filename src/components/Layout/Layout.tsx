@@ -11,6 +11,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Navbar from "../Navbar/Navbar";
 import { styles } from "./styles";
 import Tabs from "../Tabs/Tabs";
+import Snackbar from "../Snackbar/Snackbar";
 
 interface Props {
   children: React.ReactNode;
@@ -74,6 +75,8 @@ export default function Layout({ children }: Props) {
         <Toolbar />
 
         {children}
+
+        <Snackbar />
       </Box>
     </Box>
   );

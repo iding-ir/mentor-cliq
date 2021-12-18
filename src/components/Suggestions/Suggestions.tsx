@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -16,6 +16,7 @@ import { useAppSelector } from "../../app/hooks";
 import { selectProfile } from "../../features/profile/slice";
 import { IEmployee } from "../../types";
 import { selectEmployees } from "../../features/employees/slice";
+import { SnackbarContext } from "../Snackbar/useSnackbar";
 
 export interface Item {
   id: number;
@@ -30,6 +31,7 @@ const Suggestions = (props: any) => {
   const { t } = useTranslation();
   const wizard = useAppSelector(selectProfile).wizard;
   const employees = useAppSelector(selectEmployees);
+  const { snackbar, setSnackbar } = useContext(SnackbarContext);
 
   const { department, jobTitle, country, city } = wizard;
 
@@ -55,6 +57,15 @@ const Suggestions = (props: any) => {
     console.log({ cards });
     console.log({ selected });
     console.log("-------");
+
+    setSnackbar({
+      ...snackbar,
+      open: true,
+      button: t("Snackbar.close"),
+      message: t("Suggestions.success"),
+      severity: "success",
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards]);
 
   const moveCard = useCallback(

@@ -60,6 +60,12 @@ const localization = {
     en: "English",
     es: "Spanish",
   },
+  Suggestions: {
+    success: "Please check the result in your browser's console",
+  },
+  Snackbar: {
+    close: "Close",
+  },
 };
 
 export default localization;
