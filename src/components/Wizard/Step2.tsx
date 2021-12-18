@@ -21,13 +21,15 @@ const Step2 = (props: any) => {
   const { t } = useTranslation();
   const wizard = useAppSelector(selectProfile).wizard;
 
+  const { firstName, lastName, email, gender } = wizard;
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
     mode: "all",
-    defaultValues: wizard,
+    defaultValues: { firstName, lastName, email, gender },
   });
 
   const onSubmit = async (data: Partial<IEmployee>) => {

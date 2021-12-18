@@ -22,19 +22,30 @@ const Step1 = (props: any) => {
   const { t } = useTranslation();
   const wizard = useAppSelector(selectProfile).wizard;
 
+  const {
+    firstName,
+    lastName,
+    email,
+    gender,
+    department,
+    jobTitle,
+    country,
+    city,
+  } = wizard;
+
   const handleEdit = () => {
     props.nextStep();
   };
 
   const profileRows = [
-    { title: t("Profile.firstName"), value: wizard.firstName },
-    { title: t("Profile.lastName"), value: wizard.lastName },
-    { title: t("Profile.email"), value: wizard.email },
-    { title: t("Profile.gender"), value: wizard.gender },
-    { title: t("Profile.department"), value: wizard.department },
-    { title: t("Profile.jobTitle"), value: wizard.jobTitle },
-    { title: t("Profile.country"), value: wizard.country },
-    { title: t("Profile.city"), value: wizard.city },
+    { title: t("Profile.firstName"), value: firstName },
+    { title: t("Profile.lastName"), value: lastName },
+    { title: t("Profile.email"), value: email },
+    { title: t("Profile.gender"), value: gender },
+    { title: t("Profile.department"), value: department },
+    { title: t("Profile.jobTitle"), value: jobTitle },
+    { title: t("Profile.country"), value: country },
+    { title: t("Profile.city"), value: city },
   ];
 
   return (

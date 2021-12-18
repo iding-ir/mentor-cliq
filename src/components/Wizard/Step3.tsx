@@ -17,13 +17,15 @@ const Step3 = (props: any) => {
   const { t } = useTranslation();
   const wizard = useAppSelector(selectProfile).wizard;
 
+  const { department, jobTitle, country, city } = wizard;
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
     mode: "all",
-    defaultValues: wizard,
+    defaultValues: { department, jobTitle, country, city },
   });
 
   const onSubmit = async (data: Partial<IEmployee>) => {
@@ -75,8 +77,6 @@ const Step3 = (props: any) => {
             />
 
             {errors.country && <Error error={t("Error.required")} />}
-
-            {errors.lastName && <Error error={t("Error.required")} />}
           </Box>
 
           <Box sx={styles.field}>
@@ -88,8 +88,6 @@ const Step3 = (props: any) => {
             />
 
             {errors.city && <Error error={t("Error.required")} />}
-
-            {errors.lastName && <Error error={t("Error.required")} />}
           </Box>
 
           <Box sx={styles.field}>
