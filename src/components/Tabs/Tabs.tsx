@@ -1,6 +1,10 @@
-import Typography from "@mui/material/Typography";
 import { NavLink } from "react-router-dom";
 import { Trans } from "react-i18next";
+import Divider from "@mui/material/Divider";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 
 import { routes } from "../../routes";
 import { IRoute } from "../../types";
@@ -13,30 +17,42 @@ const Tabs = () => {
 
   return (
     <>
-      {Object.values(routes).map(
-        ({ key, path, title, navbar, showPublic, showPrivate }: IRoute) => {
-          return (
-            navbar &&
-            ((isLoggedIn && showPrivate) || (!isLoggedIn && showPublic)) && (
-              <Typography
-                key={key}
-                variant="h6"
-                noWrap
-                component="div"
-                sx={styles.link}
-              >
-                <NavLink
-                  className={({ isActive }) => (isActive ? "is-selected" : "")}
-                  end
-                  to={path}
-                >
-                  <Trans i18nKey={title} />
-                </NavLink>
-              </Typography>
-            )
-          );
-        }
-      )}
+      <Divider />
+
+      <List>
+        {Object.values(routes).map(
+          ({
+            key,
+            path,
+            title,
+            navbar,
+            showPublic,
+            showPrivate,
+            icon,
+          }: IRoute) => {
+            return (
+              navbar &&
+              ((isLoggedIn && showPrivate) || (!isLoggedIn && showPublic)) && (
+                <ListItem button key={key}>
+                  <ListItemIcon>{icon}</ListItemIcon>
+
+                  <ListItemText sx={styles.link}>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "is-selected" : ""
+                      }
+                      end
+                      to={path}
+                    >
+                      <Trans i18nKey={title} />
+                    </NavLink>
+                  </ListItemText>
+                </ListItem>
+              )
+            );
+          }
+        )}
+      </List>
     </>
   );
 };

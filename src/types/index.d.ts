@@ -9,6 +9,7 @@ export interface IRoute {
   showPrivate: boolean;
   showPublic: boolean;
   title?: string;
+  icon: JSX.Element;
 }
 
 export interface IRoutes {

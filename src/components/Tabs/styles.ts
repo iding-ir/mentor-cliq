@@ -1,5 +1,3 @@
-import { amber } from "@mui/material/colors";
-
 import { Styles } from "../../types";
 
 export const styles: Styles = {
@@ -10,11 +8,11 @@ export const styles: Styles = {
     margin: "0 0.5rem",
     a: {
       padding: "0 1rem",
-      color: (theme) => theme.palette.grey[50],
+      color: (theme) => theme.palette.primary.main,
       textDecoration: "none",
       fontSize: "1rem",
       "&.is-selected": {
-        color: amber[400],
+        color: (theme) => theme.palette.secondary.main,
       },
     },
   },

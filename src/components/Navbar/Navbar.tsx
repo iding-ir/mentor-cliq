@@ -4,13 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Tabs from "../Tabs/Tabs";
 
 const Navbar = () => {
-  return (
-    <AppBar position="fixed">
-      <Toolbar>
-        <Tabs />
-      </Toolbar>
-    </AppBar>
-  );
+  return <div></div>;
 };
 
 export default Navbar;

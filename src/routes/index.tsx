@@ -1,3 +1,10 @@
+import HomeIcon from "@mui/icons-material/Home";
+import LoginIcon from "@mui/icons-material/Login";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import ListAltIcon from "@mui/icons-material/ListAlt";
+import LogoutIcon from "@mui/icons-material/Logout";
+
 import { IRoutes } from "../types";
 import * as URLS from "../constants/urls";
 import Home from "../components/Home/Home";
@@ -16,6 +23,7 @@ export const routes: IRoutes = {
     title: "Navbar.home",
     showPrivate: true,
     showPublic: true,
+    icon: <HomeIcon />,
   },
   signIn: {
     key: "signIn",
@@ -25,6 +33,7 @@ export const routes: IRoutes = {
     title: "Navbar.signIn",
     showPrivate: false,
     showPublic: true,
+    icon: <LoginIcon />,
   },
   signUp: {
     key: "signUp",
@@ -34,6 +43,7 @@ export const routes: IRoutes = {
     title: "Navbar.signUp",
     showPrivate: false,
     showPublic: true,
+    icon: <ExitToAppIcon />,
   },
   profile: {
     key: "profile",
@@ -43,6 +53,7 @@ export const routes: IRoutes = {
     title: "Navbar.profile",
     showPrivate: true,
     showPublic: false,
+    icon: <AccountBoxIcon />,
   },
   suggestions: {
     key: "suggestions",
@@ -52,6 +63,7 @@ export const routes: IRoutes = {
     title: "Navbar.suggestions",
     showPrivate: true,
     showPublic: false,
+    icon: <ListAltIcon />,
   },
   signOut: {
     key: "signOut",
@@ -61,5 +73,6 @@ export const routes: IRoutes = {
     title: "Navbar.signOut",
     showPrivate: true,
     showPublic: false,
+    icon: <LogoutIcon />,
   },
 };
