@@ -16,10 +16,13 @@ export const slice = createSlice({
     addToWizard: (state, action: PayloadAction<object>) => {
       state.wizard = { ...state.wizard, ...action.payload };
     },
+    clearWizard: (state) => {
+      state.wizard = {};
+    },
   },
 });
 
-export const { addToWizard } = slice.actions;
+export const { addToWizard, clearWizard } = slice.actions;
 
 export const selectProfile = (state: RootState) => state.profile;
 

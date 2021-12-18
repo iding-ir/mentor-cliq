@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { signOut, selectAuth } from "../../features/auth/slice";
 import * as URLS from "../../constants/urls";
 import NarrowLayout from "../NarrowLayout/NarrowLayout";
+import { clearWizard } from "../../features/profile/slice";
 
 const SignOut = () => {
   const dispatch = useAppDispatch();
@@ -15,6 +16,8 @@ const SignOut = () => {
   useEffect(() => {
     const logout = async () => {
       await dispatch(signOut());
+
+      dispatch(clearWizard());
 
       navigate(URLS.HOME);
     };
