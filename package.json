@@ -1,7 +1,7 @@
 {
-  "name": "mentor-cliq",
+  "name": "mentorcliq",
   "version": "0.1.0",
-  "description": "MentorCliq.",
+  "description": "MentorcliQ.",
   "keywords": [
     "React",
     "Typescript",
@@ -18,10 +18,10 @@
   "main": "./index",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iding-ir/mentor-cliq.git"
+    "url": "git+https://github.com/iding-ir/mentorcliq.git"
   },
   "bugs": {
-    "url": "https://github.com/iding-ir/mentor-cliq/issues"
+    "url": "https://github.com/iding-ir/mentorcliq/issues"
   },
   "private": true,
   "dependencies": {

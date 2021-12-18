@@ -1,6 +1,6 @@
 const localization = {
   App: {
-    title: "MentorCliq",
+    title: "MentorcliQ",
   },
   Navbar: {
     home: "Home",
