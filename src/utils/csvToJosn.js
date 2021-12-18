@@ -11,7 +11,7 @@ export function csvToJson(csv) {
       .split(",")
       .map((header) => header.replace("\r", ""));
 
-    if (currentline.find((item) => item.length).length) {
+    if (currentline.some((item) => item.length)) {
       for (let j = 0; j < headers.length; j++) {
         obj[headers[j]] = currentline[j];
       }
