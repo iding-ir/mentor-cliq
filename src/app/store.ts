@@ -15,6 +15,8 @@ import storage from "redux-persist/lib/storage";
 import employeesReducer from "../features/employees/slice";
 import authReducer from "../features/auth/slice";
 import profileReducer from "../features/profile/slice";
+import themesReducer from "../features/themes/slice";
+import languagesReducer from "../features/languages/slice";
 
 const persistConfig = {
   key: "root",
@@ -27,6 +29,8 @@ const rootReducer = combineReducers({
   employees: employeesReducer,
   auth: authReducer,
   profile: profileReducer,
+  themes: themesReducer,
+  languages: languagesReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

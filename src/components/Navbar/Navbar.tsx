@@ -1,10 +1,17 @@
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
+import Box from "@mui/material/Box";
 
-import Tabs from "../Tabs/Tabs";
+import Language from "../Language/Language";
+import Theme from "../Theme/Theme";
+import { styles } from "./styles";
 
 const Navbar = () => {
-  return <div></div>;
+  return (
+    <Box sx={styles.Navbar}>
+      <Theme />
+
+      <Language />
+    </Box>
+  );
 };
 
 export default Navbar;

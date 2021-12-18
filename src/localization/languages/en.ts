@@ -47,6 +47,10 @@ const localization = {
   Suggestions: {
     label: "Enter a Keyword",
   },
+  Language: {
+    en: "English",
+    es: "Spanish",
+  },
 };
 
 export default localization;
