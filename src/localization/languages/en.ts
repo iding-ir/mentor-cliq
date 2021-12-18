@@ -21,6 +21,29 @@ const localization = {
   Home: {
     welcome: "Welcome",
   },
+  Error: {
+    required: "This field is required",
+    passwordsNotPatching: "Passwords do not match",
+  },
+  Profile: {
+    firstName: "First Name",
+    lastName: "Last Name",
+    email: "Email",
+    gender: "Gender",
+    male: "Male",
+    female: "Female",
+    na: "N/A",
+    department: "Department",
+    jobTitle: "Job Title",
+    country: "Country",
+    city: "City",
+    nextStep: "Next Step",
+    previousStep: "Previous Step",
+    cancel: "cancel",
+    submit: "Submit",
+    edit: "Edit",
+    personalData: "Personal Data",
+  },
 };
 
 export default localization;

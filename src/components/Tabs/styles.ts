@@ -1,3 +1,5 @@
+import { amber } from "@mui/material/colors";
+
 import { Styles } from "../../types";
 
 export const styles: Styles = {
@@ -12,11 +14,7 @@ export const styles: Styles = {
       textDecoration: "none",
       fontSize: "1rem",
       "&.is-selected": {
-        borderRadius: "4px",
-        backgroundColor: (theme) =>
-          theme.palette.mode === "dark"
-            ? "rgba(225, 225, 225, 0.1)"
-            : "rgba(0, 0, 0, 0.1)",
+        color: amber[400],
       },
     },
   },

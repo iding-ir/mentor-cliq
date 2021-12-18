@@ -3,10 +3,6 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import { useForm } from "react-hook-form";
 
 import { styles } from "./styles";
@@ -16,7 +12,7 @@ import Error from "../Error/Error";
 import NarrowLayout from "../NarrowLayout/NarrowLayout";
 import { IWizard } from "../../types";
 
-const Step2 = (props: any) => {
+const Step3 = (props: any) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const wizard = useAppSelector(selectProfile).wizard;
@@ -31,9 +27,13 @@ const Step2 = (props: any) => {
   });
 
   const onSubmit = async (data: Partial<IWizard>) => {
-    props.nextStep();
+    props.firstStep();
 
     dispatch(addToWizard(data));
+  };
+
+  const handlePreviousStep = () => {
+    props.previousStep();
   };
 
   const handleCancel = () => {
@@ -46,54 +46,61 @@ const Step2 = (props: any) => {
         <Paper sx={styles.wrapper}>
           <Box sx={styles.field}>
             <TextField
-              label={t("Profile.firstName")}
+              label={t("Profile.department")}
               variant="outlined"
               fullWidth
-              {...register("firstName", { required: true })}
+              {...register("department", { required: true })}
             />
 
-            {errors.firstName && <Error error={t("Error.required")} />}
+            {errors.department && <Error error={t("Error.required")} />}
           </Box>
 
           <Box sx={styles.field}>
             <TextField
-              label={t("Profile.lastName")}
+              label={t("Profile.jobTitle")}
               variant="outlined"
               fullWidth
-              {...register("lastName", { required: true })}
+              {...register("jobTitle", { required: true })}
             />
+
+            {errors.jobTitle && <Error error={t("Error.required")} />}
+          </Box>
+
+          <Box sx={styles.field}>
+            <TextField
+              label={t("Profile.country")}
+              variant="outlined"
+              fullWidth
+              {...register("country", { required: true })}
+            />
+
+            {errors.country && <Error error={t("Error.required")} />}
 
             {errors.lastName && <Error error={t("Error.required")} />}
           </Box>
 
           <Box sx={styles.field}>
             <TextField
-              label={t("Profile.email")}
+              label={t("Profile.city")}
               variant="outlined"
               fullWidth
-              {...register("email", { required: true })}
+              {...register("city", { required: true })}
             />
 
-            {errors.email && <Error error={t("Error.required")} />}
+            {errors.city && <Error error={t("Error.required")} />}
+
+            {errors.lastName && <Error error={t("Error.required")} />}
           </Box>
 
           <Box sx={styles.field}>
-            <FormControl fullWidth>
-              <InputLabel id="profile-gender">{t("Profile.gender")}</InputLabel>
-
-              <Select
-                labelId="profile-gender"
-                id="profile-gender-select"
-                label={t("Profile.gender")}
-                {...register("gender", { required: true })}
-              >
-                <MenuItem value="male">{t("Profile.male")}</MenuItem>
-                <MenuItem value="female">{t("Profile.female")}</MenuItem>
-                <MenuItem value="n/a">{t("Profile.na")}</MenuItem>
-              </Select>
-            </FormControl>
-
-            {errors.lastName && <Error error={t("Error.required")} />}
+            <Button
+              type="button"
+              variant="outlined"
+              fullWidth={true}
+              onClick={handlePreviousStep}
+            >
+              {t("Profile.previousStep")}
+            </Button>
           </Box>
 
           <Box sx={styles.field}>
@@ -118,4 +125,4 @@ const Step2 = (props: any) => {
   );
 };
 
-export default Step2;
+export default Step3;

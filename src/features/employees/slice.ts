@@ -1,14 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
+import { IWizard } from "../../types";
 import { getEmployees } from "./api";
 
+interface IUsers {
+  [keys: string]: IWizard;
+}
 export interface State {
-  all: any[];
+  all: IUsers;
   status: "idle" | "loading" | "succeeded" | "failed";
 }
 
 const initialState: State = {
-  all: [],
+  all: {},
   status: "idle",
 };
 
@@ -17,7 +21,7 @@ export const fetchEmployees = createAsyncThunk(
   async () => {
     const data = await getEmployees();
 
-    return data.reduce((total: any, current: any) => {
+    return data.reduce((total: IUsers, current: IWizard) => {
       return { ...total, [current.email]: current };
     }, {});
   }

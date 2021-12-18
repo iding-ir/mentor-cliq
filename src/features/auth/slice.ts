@@ -1,20 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
+import { ISignIn, ISignUp } from "../../types";
 import { getSignIn, getSignOut, getSignUp } from "./api";
 
 export interface State {
-  user: any;
+  user: ISignIn;
   isLoggedIn: boolean;
   status: "idle" | "loading" | "succeeded" | "failed";
 }
 
 const initialState: State = {
-  user: "",
+  user: { email: null, password: null },
   isLoggedIn: false,
   status: "idle",
 };
 
-export const signIn = createAsyncThunk("auth/signIn", async (data: any) => {
+export const signIn = createAsyncThunk("auth/signIn", async (data: ISignIn) => {
   return await getSignIn(data);
 });
 
@@ -22,7 +23,7 @@ export const signOut = createAsyncThunk("auth/signOut", async () => {
   return await getSignOut();
 });
 
-export const signUp = createAsyncThunk("auth/signUp", async (data: any) => {
+export const signUp = createAsyncThunk("auth/signUp", async (data: ISignUp) => {
   return await getSignUp(data);
 });
 
@@ -37,7 +38,7 @@ export const slice = createSlice({
       })
       .addCase(signIn.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.user = action.payload;
+        state.user = action.payload as ISignIn;
         state.isLoggedIn = true;
       })
       .addCase(signOut.pending, (state) => {
@@ -45,7 +46,7 @@ export const slice = createSlice({
       })
       .addCase(signOut.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.user = {};
+        state.user = {} as ISignIn;
         state.isLoggedIn = false;
       })
       .addCase(signUp.pending, (state) => {
@@ -53,7 +54,7 @@ export const slice = createSlice({
       })
       .addCase(signUp.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.user = action.payload;
+        state.user = action.payload as ISignIn;
         state.isLoggedIn = true;
       });
   },

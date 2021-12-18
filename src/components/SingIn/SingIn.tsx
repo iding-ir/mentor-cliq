@@ -11,6 +11,9 @@ import { styles } from "./styles";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { signIn, selectAuth } from "../../features/auth/slice";
 import * as URLS from "../../constants/urls";
+import Error from "../Error/Error";
+import NarrowLayout from "../NarrowLayout/NarrowLayout";
+import { ISignIn } from "../../types";
 
 const SignIn = () => {
   const dispatch = useAppDispatch();
@@ -25,7 +28,7 @@ const SignIn = () => {
     mode: "all",
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: ISignIn) => {
     await dispatch(signIn(data));
 
     navigate(URLS.PROFILE);
@@ -33,7 +36,7 @@ const SignIn = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Box sx={styles.SignIn}>
+      <NarrowLayout>
         {status === "loading" ? (
           <LinearProgress />
         ) : (
@@ -46,9 +49,7 @@ const SignIn = () => {
                 {...register("email", { required: true })}
               />
 
-              {errors.email && (
-                <Box sx={styles.error}>This field is required</Box>
-              )}
+              {errors.email && <Error error={t("Error.required")} />}
             </Box>
 
             <Box sx={styles.field}>
@@ -60,9 +61,7 @@ const SignIn = () => {
                 {...register("password", { required: true })}
               />
 
-              {errors.password && (
-                <Box sx={styles.error}>This field is required</Box>
-              )}
+              {errors.password && <Error error={t("Error.required")} />}
             </Box>
 
             <Box sx={styles.field}>
@@ -72,7 +71,7 @@ const SignIn = () => {
             </Box>
           </Paper>
         )}
-      </Box>
+      </NarrowLayout>
     </form>
   );
 };

@@ -11,6 +11,9 @@ import { styles } from "./styles";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { signUp, selectAuth } from "../../features/auth/slice";
 import * as URLS from "../../constants/urls";
+import Error from "../Error/Error";
+import NarrowLayout from "../NarrowLayout/NarrowLayout";
+import { ISignUp } from "../../types";
 
 const SignUp = () => {
   const dispatch = useAppDispatch();
@@ -26,7 +29,7 @@ const SignUp = () => {
     mode: "all",
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: ISignUp) => {
     await dispatch(signUp(data));
 
     navigate(URLS.PROFILE);
@@ -37,7 +40,7 @@ const SignUp = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Box sx={styles.SignUp}>
+      <NarrowLayout>
         {status === "loading" ? (
           <LinearProgress />
         ) : (
@@ -50,9 +53,7 @@ const SignUp = () => {
                 {...register("email", { required: true })}
               />
 
-              {errors.email && (
-                <Box sx={styles.error}>This field is required</Box>
-              )}
+              {errors.email && <Error error={t("Error.required")} />}
             </Box>
 
             <Box sx={styles.field}>
@@ -64,9 +65,7 @@ const SignUp = () => {
                 {...register("password", { required: true })}
               />
 
-              {errors.password && (
-                <Box sx={styles.error}>This field is required</Box>
-              )}
+              {errors.password && <Error error={t("Error.required")} />}
             </Box>
 
             <Box sx={styles.field}>
@@ -78,12 +77,10 @@ const SignUp = () => {
                 {...register("rePassword", { required: true })}
               />
 
-              {errors.rePassword && (
-                <Box sx={styles.error}>This field is required</Box>
-              )}
+              {errors.rePassword && <Error error={t("Error.required")} />}
 
               {password && rePassword && password !== rePassword && (
-                <Box sx={styles.error}>Passwords do not match</Box>
+                <Error error={t("Error.passwordsNotPatching")} />
               )}
             </Box>
 
@@ -94,7 +91,7 @@ const SignUp = () => {
             </Box>
           </Paper>
         )}
-      </Box>
+      </NarrowLayout>
     </form>
   );
 };

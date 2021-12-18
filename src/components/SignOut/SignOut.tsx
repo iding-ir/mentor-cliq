@@ -1,12 +1,11 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LinearProgress from "@mui/material/LinearProgress";
-import Box from "@mui/material/Box";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { signOut, selectAuth } from "../../features/auth/slice";
 import * as URLS from "../../constants/urls";
-import { styles } from "./styles";
+import NarrowLayout from "../NarrowLayout/NarrowLayout";
 
 const SignOut = () => {
   const dispatch = useAppDispatch();
@@ -25,9 +24,9 @@ const SignOut = () => {
   }, []);
 
   return (
-    <Box sx={styles.SignOut}>
+    <NarrowLayout>
       {status === "loading" ? <LinearProgress /> : null}
-    </Box>
+    </NarrowLayout>
   );
 };
 

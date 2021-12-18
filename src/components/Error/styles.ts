@@ -1,10 +1,8 @@
 import { Styles } from "../../types";
 
 export const styles: Styles = {
-  wrapper: {
-    padding: "0 1rem",
-  },
-  field: {
+  Error: {
+    color: (theme) => theme.palette.error.main,
     margin: "1rem 0",
   },
 };

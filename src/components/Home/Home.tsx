@@ -3,9 +3,7 @@ import Box from "@mui/material/Box";
 
 import { styles } from "./styles";
 
-interface IProps {}
-
-const Home = (props: IProps) => {
+const Home = () => {
   const { t } = useTranslation();
 
   return <Box sx={styles.Home}>{t("Home.welcome")}</Box>;

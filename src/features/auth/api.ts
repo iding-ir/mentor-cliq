@@ -1,4 +1,6 @@
-export const getSignIn = async (data: any) => {
+import { ISignIn, ISignUp } from "../../types";
+
+export const getSignIn = async (data: ISignIn) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       console.log(data);
@@ -19,7 +21,7 @@ export const getSignOut = async () => {
   });
 };
 
-export const getSignUp = async (data: any) => {
+export const getSignUp = async (data: ISignUp) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       console.log(data);
