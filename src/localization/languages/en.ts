@@ -46,7 +46,7 @@ const localization = {
     city: "City",
     nextStep: "Next Step",
     previousStep: "Previous Step",
-    cancel: "cancel",
+    cancel: "Cancel",
     submit: "Submit",
     edit: "Edit",
     personalData: "Personal Data",
