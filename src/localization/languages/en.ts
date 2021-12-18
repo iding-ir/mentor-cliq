@@ -1,4 +1,7 @@
 const localization = {
+  App: {
+    title: "MentorCliq",
+  },
   Navbar: {
     home: "Home",
     signIn: "Sign In",
@@ -6,6 +9,10 @@ const localization = {
     signOut: "Sign Out",
     profile: "Profile",
     suggestions: "Suggestions",
+    theme: "Switch Theme",
+  },
+  Layout: {
+    toggleDrawer: "Open Drawer",
   },
   SignIn: {
     username: "Email",

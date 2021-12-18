@@ -11,11 +11,13 @@ export function csvToJson(csv) {
       .split(",")
       .map((header) => header.replace("\r", ""));
 
-    for (let j = 0; j < headers.length; j++) {
-      obj[headers[j]] = currentline[j];
-    }
+    if (currentline.find((item) => item.length).length) {
+      for (let j = 0; j < headers.length; j++) {
+        obj[headers[j]] = currentline[j];
+      }
 
-    result.push(obj);
+      result.push(obj);
+    }
   }
 
   return JSON.stringify(result);

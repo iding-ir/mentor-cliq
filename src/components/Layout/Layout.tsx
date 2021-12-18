@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -16,6 +17,7 @@ interface Props {
 }
 
 export default function Layout({ children }: Props) {
+  const { t } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleToggle = () => {
@@ -24,8 +26,10 @@ export default function Layout({ children }: Props) {
 
   const drawer = (
     <>
-      <Toolbar />
+      <Toolbar sx={styles.title}>{t("App.title")}</Toolbar>
+
       <Divider />
+
       <Tabs />
     </>
   );
@@ -36,7 +40,7 @@ export default function Layout({ children }: Props) {
         <Toolbar>
           <IconButton
             color="inherit"
-            aria-label="open drawer"
+            aria-label={t("Layout.toggleDrawer")}
             edge="start"
             onClick={handleToggle}
             sx={styles.drawerToggle}

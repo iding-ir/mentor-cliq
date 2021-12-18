@@ -12,7 +12,6 @@ import TableHead from "@mui/material/TableHead";
 
 import { styles } from "./styles";
 import { useAppSelector } from "../../app/hooks";
-import NarrowLayout from "../NarrowLayout/NarrowLayout";
 import { selectEmployees } from "../../features/employees/slice";
 import { IEmployee } from "../../types";
 
@@ -69,7 +68,7 @@ const Suggestions = (props: any) => {
   };
 
   return (
-    <NarrowLayout width="1280px">
+    <Box sx={styles.Suggestions}>
       <Paper sx={styles.wrapper}>
         <Box sx={styles.field}>
           <TextField
@@ -81,8 +80,12 @@ const Suggestions = (props: any) => {
           />
         </Box>
 
-        <TableContainer>
-          <Table stickyHeader aria-label={t("Profile.personalData")}>
+        <TableContainer sx={styles.tableWrapper}>
+          <Table
+            stickyHeader
+            aria-label={t("Profile.personalData")}
+            sx={styles.table}
+          >
             <TableHead>
               <TableRow>
                 <TableCell>{t("Profile.firstName")}</TableCell>
@@ -107,7 +110,7 @@ const Suggestions = (props: any) => {
           </Table>
         </TableContainer>
       </Paper>
-    </NarrowLayout>
+    </Box>
   );
 };
 

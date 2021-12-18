@@ -11,6 +11,7 @@ import { styles } from "./styles";
 import { useAppSelector } from "../../app/hooks";
 import { selectProfile } from "../../features/profile/slice";
 import NarrowLayout from "../NarrowLayout/NarrowLayout";
+import { TableBody } from "@mui/material";
 
 interface IProfileRow {
   title: string;
@@ -41,17 +42,19 @@ const Step1 = (props: any) => {
       <Paper sx={styles.wrapper}>
         <TableContainer>
           <Table stickyHeader aria-label={t("Profile.personalData")}>
-            {profileRows.map((row: IProfileRow) => {
-              return (
-                <TableRow key={row.title}>
-                  <TableCell variant="head" align="left">
-                    {row.title}
-                  </TableCell>
+            <TableBody>
+              {profileRows.map((row: IProfileRow) => {
+                return (
+                  <TableRow key={row.title}>
+                    <TableCell variant="head" align="left">
+                      {row.title}
+                    </TableCell>
 
-                  <TableCell align="right">{row.value}</TableCell>
-                </TableRow>
-              );
-            })}
+                    <TableCell align="right">{row.value}</TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
           </Table>
         </TableContainer>
 

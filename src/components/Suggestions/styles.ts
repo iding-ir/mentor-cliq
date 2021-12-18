@@ -1,18 +1,17 @@
+import { DRAWER_WIDTH } from "../../constants";
 import { Styles } from "../../types";
 
 export const styles: Styles = {
-  Step: {
-    display: "flex",
-    flexDirection: "column",
-    width: "300px",
-    height: "100%",
-    margin: "0 auto",
-    justifyContent: "center",
+  Suggestions: {
+    width: "100%",
   },
   wrapper: {
-    padding: "0 1rem",
+    padding: "1rem",
   },
   field: {
-    margin: "1rem 0",
+    marginBottom: "1rem",
+  },
+  tableWrapper: {
+    maxWidth: `calc(100% -  ${DRAWER_WIDTH}`,
   },
 };
