@@ -30,7 +30,7 @@ export default function Layout({ children }: Props) {
 
       <Divider />
 
-      <Tabs />
+      <Tabs setMobileOpen={setMobileOpen} />
     </>
   );
 

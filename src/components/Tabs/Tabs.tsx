@@ -11,7 +11,11 @@ import { IRoute } from "../../types";
 import { styles } from "./styles";
 import { useAuth } from "../../hooks/useAuth";
 
-const Tabs = () => {
+interface IProps {
+  setMobileOpen: (status: boolean) => void;
+}
+
+const Tabs = ({ setMobileOpen }: IProps) => {
   const { auth } = useAuth();
   const { isLoggedIn } = auth;
 
@@ -43,6 +47,9 @@ const Tabs = () => {
                       }
                       end
                       to={path}
+                      onClick={() => {
+                        setMobileOpen(false);
+                      }}
                     >
                       <Trans i18nKey={title} />
                     </NavLink>

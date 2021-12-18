@@ -9,7 +9,7 @@ interface Props {
 }
 
 const NarrowLayout = ({ children, width }: Props) => {
-  return <Box sx={{ ...styles.wrapper, width }}>{children}</Box>;
+  return <Box sx={{ ...styles.wrapper, maxWidth: width }}>{children}</Box>;
 };
 
 NarrowLayout.defaultProps = {

@@ -4,6 +4,7 @@ export const styles: Styles = {
   Navbar: {
     width: "100%",
     display: "flex",
+    alignItems: "center",
     flexDirection: "row-reverse",
   },
 };
