@@ -8,7 +8,8 @@ const localization = {
     signUp: "Inscribirse",
     signOut: "Desconectar",
     profile: "Perfil",
-    search: "Sugerencias",
+    search: "búsqueda",
+    suggestions: "Sugerencias",
     theme: "Cambiar tema",
   },
   Layout: {
@@ -33,6 +34,7 @@ const localization = {
     passwordsNotPatching: "Las contraseñas no coinciden",
   },
   Profile: {
+    name: "nombre",
     firstName: "Primer nombre",
     lastName: "Apellido",
     email: "Correo electrónico",

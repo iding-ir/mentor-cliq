@@ -1,5 +1,7 @@
 import { HashRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { DndProvider } from "react-dnd";
 
 import "../../localization";
 import Pages from "../Pages/Pages";
@@ -15,9 +17,11 @@ function App() {
 
   return (
     <Router>
-      <ThemeProvider theme={theme}>
-        <Pages />
-      </ThemeProvider>
+      <DndProvider backend={HTML5Backend}>
+        <ThemeProvider theme={theme}>
+          <Pages />
+        </ThemeProvider>
+      </DndProvider>
     </Router>
   );
 }

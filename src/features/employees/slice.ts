@@ -3,11 +3,11 @@ import { RootState } from "../../app/store";
 import { IEmployee } from "../../types";
 import { getEmployees } from "./api";
 
-interface IUsers {
+export interface IEmployees {
   [keys: string]: IEmployee;
 }
 export interface State {
-  all: IUsers;
+  all: IEmployees;
   status: "idle" | "loading" | "succeeded" | "failed";
 }
 
@@ -21,7 +21,7 @@ export const fetchEmployees = createAsyncThunk(
   async () => {
     const data = await getEmployees();
 
-    return data.reduce((total: IUsers, current: IEmployee) => {
+    return data.reduce((total: IEmployees, current: IEmployee) => {
       return { ...total, [current.email]: current };
     }, {});
   }
