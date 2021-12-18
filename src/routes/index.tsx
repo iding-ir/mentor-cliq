@@ -1,9 +1,10 @@
 import HomeIcon from "@mui/icons-material/Home";
-import LoginIcon from "@mui/icons-material/Login";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import ListAltIcon from "@mui/icons-material/ListAlt";
-import LogoutIcon from "@mui/icons-material/Logout";
+import SignInIcon from "@mui/icons-material/Login";
+import SignUpIcon from "@mui/icons-material/ExitToApp";
+import ProfileIcon from "@mui/icons-material/AccountBox";
+import SuggestionsIcon from "@mui/icons-material/Ballot";
+import SearchIcon from "@mui/icons-material/ListAlt";
+import SignOutIcon from "@mui/icons-material/Logout";
 
 import { IRoutes } from "../types";
 import * as URLS from "../constants/urls";
@@ -34,7 +35,7 @@ export const routes: IRoutes = {
     title: "Navbar.signIn",
     showPrivate: false,
     showPublic: true,
-    icon: <LoginIcon />,
+    icon: <SignInIcon />,
   },
   signUp: {
     key: "signUp",
@@ -44,7 +45,7 @@ export const routes: IRoutes = {
     title: "Navbar.signUp",
     showPrivate: false,
     showPublic: true,
-    icon: <ExitToAppIcon />,
+    icon: <SignUpIcon />,
   },
   profile: {
     key: "profile",
@@ -54,7 +55,7 @@ export const routes: IRoutes = {
     title: "Navbar.profile",
     showPrivate: true,
     showPublic: false,
-    icon: <AccountBoxIcon />,
+    icon: <ProfileIcon />,
   },
   suggestions: {
     key: "suggestions",
@@ -64,7 +65,7 @@ export const routes: IRoutes = {
     title: "Navbar.suggestions",
     showPrivate: true,
     showPublic: false,
-    icon: <ListAltIcon />,
+    icon: <SuggestionsIcon />,
   },
   search: {
     key: "search",
@@ -74,7 +75,7 @@ export const routes: IRoutes = {
     title: "Navbar.search",
     showPrivate: true,
     showPublic: false,
-    icon: <ListAltIcon />,
+    icon: <SearchIcon />,
   },
   signOut: {
     key: "signOut",
@@ -84,6 +85,6 @@ export const routes: IRoutes = {
     title: "Navbar.signOut",
     showPrivate: true,
     showPublic: false,
-    icon: <LogoutIcon />,
+    icon: <SignOutIcon />,
   },
 };
