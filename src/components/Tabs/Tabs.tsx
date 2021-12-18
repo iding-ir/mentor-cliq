@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import { NavLink } from "react-router-dom";
 import { Trans } from "react-i18next";
 import Divider from "@mui/material/Divider";
@@ -37,24 +38,26 @@ const Tabs = ({ setMobileOpen }: IProps) => {
             return (
               navbar &&
               ((isLoggedIn && showPrivate) || (!isLoggedIn && showPublic)) && (
-                <ListItem button key={key}>
-                  <ListItemIcon sx={styles.icon}>{icon}</ListItemIcon>
+                <Box sx={styles.link}>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? "is-selected" : ""
+                    }
+                    end
+                    to={path}
+                    onClick={() => {
+                      setMobileOpen(false);
+                    }}
+                  >
+                    <ListItem button key={key}>
+                      <ListItemIcon sx={styles.icon}>{icon}</ListItemIcon>
 
-                  <ListItemText sx={styles.link}>
-                    <NavLink
-                      className={({ isActive }) =>
-                        isActive ? "is-selected" : ""
-                      }
-                      end
-                      to={path}
-                      onClick={() => {
-                        setMobileOpen(false);
-                      }}
-                    >
-                      <Trans i18nKey={title} />
-                    </NavLink>
-                  </ListItemText>
-                </ListItem>
+                      <ListItemText>
+                        <Trans i18nKey={title} />
+                      </ListItemText>
+                    </ListItem>
+                  </NavLink>
+                </Box>
               )
             );
           }
