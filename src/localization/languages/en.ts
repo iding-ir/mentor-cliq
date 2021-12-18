@@ -44,6 +44,9 @@ const localization = {
     edit: "Edit",
     personalData: "Personal Data",
   },
+  Suggestions: {
+    label: "Enter a Keyword",
+  },
 };
 
 export default localization;

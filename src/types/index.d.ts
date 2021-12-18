@@ -30,7 +30,7 @@ export interface ISignUp {
   rePassword: string;
 }
 
-export interface IWizard {
+export interface IEmployee {
   firstName: string;
   lastName: string;
   email: string;

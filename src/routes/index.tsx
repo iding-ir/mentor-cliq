@@ -5,6 +5,7 @@ import SignIn from "../components/SingIn/SingIn";
 import SignUp from "../components/SignUp/SignUp";
 import SignOut from "../components/SignOut/SignOut";
 import Profile from "../components/Profile/Profile";
+import Suggestions from "../components/Suggestions/Suggestions";
 
 export const routes: IRoutes = {
   home: {
@@ -40,6 +41,15 @@ export const routes: IRoutes = {
     element: <Profile />,
     navbar: true,
     title: "Navbar.profile",
+    showPrivate: true,
+    showPublic: false,
+  },
+  suggestions: {
+    key: "suggestions",
+    path: URLS.SUGGESTIONS,
+    element: <Suggestions />,
+    navbar: true,
+    title: "Navbar.suggestions",
     showPrivate: true,
     showPublic: false,
   },

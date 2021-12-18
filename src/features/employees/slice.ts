@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
-import { IWizard } from "../../types";
+import { IEmployee } from "../../types";
 import { getEmployees } from "./api";
 
 interface IUsers {
-  [keys: string]: IWizard;
+  [keys: string]: IEmployee;
 }
 export interface State {
   all: IUsers;
@@ -21,7 +21,7 @@ export const fetchEmployees = createAsyncThunk(
   async () => {
     const data = await getEmployees();
 
-    return data.reduce((total: IUsers, current: IWizard) => {
+    return data.reduce((total: IUsers, current: IEmployee) => {
       return { ...total, [current.email]: current };
     }, {});
   }

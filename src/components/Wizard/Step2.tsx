@@ -14,7 +14,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { addToWizard, selectProfile } from "../../features/profile/slice";
 import Error from "../Error/Error";
 import NarrowLayout from "../NarrowLayout/NarrowLayout";
-import { IWizard } from "../../types";
+import { IEmployee } from "../../types";
 
 const Step2 = (props: any) => {
   const dispatch = useAppDispatch();
@@ -30,7 +30,7 @@ const Step2 = (props: any) => {
     defaultValues: wizard,
   });
 
-  const onSubmit = async (data: Partial<IWizard>) => {
+  const onSubmit = async (data: Partial<IEmployee>) => {
     props.nextStep();
 
     dispatch(addToWizard(data));
