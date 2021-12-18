@@ -2,7 +2,7 @@ import { DRAWER_WIDTH } from "../../constants";
 import { Styles } from "../../types";
 
 export const styles: Styles = {
-  Suggestions: {
+  Search: {
     width: "100%",
   },
   wrapper: {

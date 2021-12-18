@@ -15,7 +15,7 @@ import { useAppSelector } from "../../app/hooks";
 import { selectEmployees } from "../../features/employees/slice";
 import { IEmployee } from "../../types";
 
-const Suggestions = (props: any) => {
+const Search = (props: any) => {
   const { t } = useTranslation();
   const employees = useAppSelector(selectEmployees);
   const [keyword, setKeyword] = useState("");
@@ -68,11 +68,11 @@ const Suggestions = (props: any) => {
   };
 
   return (
-    <Box sx={styles.Suggestions}>
+    <Box sx={styles.Search}>
       <Paper sx={styles.wrapper}>
         <Box sx={styles.field}>
           <TextField
-            label={t("Suggestions.label")}
+            label={t("Search.label")}
             variant="outlined"
             fullWidth
             value={keyword}
@@ -114,4 +114,4 @@ const Suggestions = (props: any) => {
   );
 };
 
-export default Suggestions;
+export default Search;

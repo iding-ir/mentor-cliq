@@ -12,7 +12,7 @@ import SignIn from "../components/SingIn/SingIn";
 import SignUp from "../components/SignUp/SignUp";
 import SignOut from "../components/SignOut/SignOut";
 import Profile from "../components/Profile/Profile";
-import Suggestions from "../components/Suggestions/Suggestions";
+import Search from "../components/Search/Search";
 
 export const routes: IRoutes = {
   home: {
@@ -55,12 +55,12 @@ export const routes: IRoutes = {
     showPublic: false,
     icon: <AccountBoxIcon />,
   },
-  suggestions: {
-    key: "suggestions",
-    path: URLS.SUGGESTIONS,
-    element: <Suggestions />,
+  search: {
+    key: "search",
+    path: URLS.SEARCH,
+    element: <Search />,
     navbar: true,
-    title: "Navbar.suggestions",
+    title: "Navbar.search",
     showPrivate: true,
     showPublic: false,
     icon: <ListAltIcon />,

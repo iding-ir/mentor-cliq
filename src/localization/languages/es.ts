@@ -8,7 +8,7 @@ const localization = {
     signUp: "Inscribirse",
     signOut: "Desconectar",
     profile: "Perfil",
-    suggestions: "Sugerencias",
+    search: "Sugerencias",
     theme: "Cambiar tema",
   },
   Layout: {
@@ -51,7 +51,7 @@ const localization = {
     edit: "Editar",
     personalData: "Información personal",
   },
-  Suggestions: {
+  Search: {
     label: "Ingrese una palabra clave",
   },
   Language: {
