@@ -4,7 +4,6 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 
 import { styles } from "./styles";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
@@ -12,13 +11,13 @@ import { addToWizard, selectProfile } from "../../features/profile/slice";
 import Error from "../Error/Error";
 import NarrowLayout from "../NarrowLayout/NarrowLayout";
 import { IEmployee } from "../../types";
-import * as URLS from "../../constants/urls";
+import { useNavigation } from "../../hooks/useNavigation";
 
 const Step3 = (props: any) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const wizard = useAppSelector(selectProfile).wizard;
-  const navigate = useNavigate();
+  const { setRoute } = useNavigation();
 
   const { department, jobTitle, country, city } = wizard;
 
@@ -34,7 +33,7 @@ const Step3 = (props: any) => {
   const onSubmit = async (data: Partial<IEmployee>) => {
     dispatch(addToWizard(data));
 
-    navigate(URLS.SUGGESTIONS);
+    setRoute("suggestions");
   };
 
   const handlePreviousStep = () => {

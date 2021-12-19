@@ -1,16 +1,15 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import LinearProgress from "@mui/material/LinearProgress";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { signOut, selectAuth } from "../../features/auth/slice";
-import * as URLS from "../../constants/urls";
 import NarrowLayout from "../NarrowLayout/NarrowLayout";
 import { clearWizard } from "../../features/profile/slice";
+import { useNavigation } from "../../hooks/useNavigation";
 
 const SignOut = () => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  const { setRoute } = useNavigation();
   const status = useAppSelector(selectAuth).status;
 
   useEffect(() => {
@@ -19,7 +18,7 @@ const SignOut = () => {
 
       dispatch(clearWizard());
 
-      navigate(URLS.HOME);
+      setRoute("home");
     };
 
     logout();

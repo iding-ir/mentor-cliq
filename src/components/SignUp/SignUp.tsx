@@ -4,21 +4,20 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import LinearProgress from "@mui/material/LinearProgress";
 
 import { styles } from "./styles";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { signUp, selectAuth } from "../../features/auth/slice";
-import * as URLS from "../../constants/urls";
 import Error from "../Error/Error";
 import NarrowLayout from "../NarrowLayout/NarrowLayout";
 import { ISignUp } from "../../types";
+import { useNavigation } from "../../hooks/useNavigation";
 
 const SignUp = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const { setRoute } = useNavigation();
   const status = useAppSelector(selectAuth).status;
   const {
     register,
@@ -32,7 +31,7 @@ const SignUp = () => {
   const onSubmit = async (data: ISignUp) => {
     await dispatch(signUp(data));
 
-    navigate(URLS.PROFILE);
+    setRoute("profile");
   };
 
   const password = watch("password");

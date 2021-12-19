@@ -4,21 +4,20 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import LinearProgress from "@mui/material/LinearProgress";
 
 import { styles } from "./styles";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { signIn, selectAuth } from "../../features/auth/slice";
-import * as URLS from "../../constants/urls";
 import Error from "../Error/Error";
 import NarrowLayout from "../NarrowLayout/NarrowLayout";
 import { ISignIn } from "../../types";
+import { useNavigation } from "../../hooks/useNavigation";
 
 const SignIn = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const { setRoute } = useNavigation();
   const status = useAppSelector(selectAuth).status;
   const {
     register,
@@ -31,7 +30,7 @@ const SignIn = () => {
   const onSubmit = async (data: ISignIn) => {
     await dispatch(signIn(data));
 
-    navigate(URLS.PROFILE);
+    setRoute("profile");
   };
 
   return (
