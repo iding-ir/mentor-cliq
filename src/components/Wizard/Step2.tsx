@@ -95,7 +95,7 @@ const Step2 = (props: any) => {
               </Select>
             </FormControl>
 
-            {errors.lastName && <Error error={t("Error.required")} />}
+            {errors.gender && <Error error={t("Error.required")} />}
           </Box>
 
           <Box sx={styles.field}>
