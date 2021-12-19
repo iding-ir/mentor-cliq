@@ -5,6 +5,10 @@ export const styles: Styles = {
     width: "100%",
     display: "flex",
     alignItems: "center",
-    flexDirection: "row-reverse",
+    flexDirection: "row",
+  },
+  title: {},
+  pusher: {
+    flexGrow: "10",
   },
 };

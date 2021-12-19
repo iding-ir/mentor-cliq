@@ -17,6 +17,7 @@ import authReducer from "../features/auth/slice";
 import profileReducer from "../features/profile/slice";
 import themesReducer from "../features/themes/slice";
 import languagesReducer from "../features/languages/slice";
+import pageReducer from "../features/pages/slice";
 
 const persistConfig = {
   key: "root",
@@ -31,6 +32,7 @@ const rootReducer = combineReducers({
   profile: profileReducer,
   themes: themesReducer,
   languages: languagesReducer,
+  pages: pageReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
