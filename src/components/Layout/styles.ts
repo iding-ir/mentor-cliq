@@ -4,6 +4,16 @@ import { DRAWER_WIDTH } from "../../constants";
 export const styles: Styles = {
   title: {
     fontSize: "1.2rem",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  logo: {
+    "& svg": {
+      width: "2.4rem",
+      height: "2.4rem",
+      margin: "0 1rem",
+    },
   },
   drawer: {
     display: "flex",

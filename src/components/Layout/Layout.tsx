@@ -12,6 +12,10 @@ import Navbar from "../Navbar/Navbar";
 import { styles } from "./styles";
 import Tabs from "../Tabs/Tabs";
 import Snackbar from "../Snackbar/Snackbar";
+import { ReactComponent as Logo } from "../../assets/images/icon-logo.svg";
+import { getTheme } from "../Theme/getTheme";
+import { selectMode } from "../../features/themes/slice";
+import { useAppSelector } from "../../app/hooks";
 
 interface Props {
   children: React.ReactNode;
@@ -20,6 +24,8 @@ interface Props {
 export default function Layout({ children }: Props) {
   const { t } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const mode = useAppSelector(selectMode);
+  const theme = getTheme(mode);
 
   const handleToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -27,7 +33,16 @@ export default function Layout({ children }: Props) {
 
   const drawer = (
     <>
-      <Toolbar sx={styles.title}>{t("App.title")}</Toolbar>
+      <Toolbar sx={styles.title}>
+        <Box sx={styles.logo}>
+          <Logo
+            stroke={theme.palette.primary.contrastText}
+            fill={theme.palette.primary.light}
+          />
+        </Box>
+
+        {t("App.title")}
+      </Toolbar>
 
       <Divider />
 
