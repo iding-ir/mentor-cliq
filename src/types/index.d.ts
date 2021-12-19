@@ -35,7 +35,7 @@ export interface IEmployee {
   firstName: string;
   lastName: string;
   email: string;
-  gender: "male" | "female" | "na";
+  gender: "male" | "female" | "n/a";
   department: string;
   jobTitle: string;
   country: string;

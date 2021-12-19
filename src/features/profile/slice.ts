@@ -1,12 +1,22 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
+import { IEmployee } from "../../types";
 
 export interface State {
-  wizard: any;
+  wizard: IEmployee;
 }
 
 const initialState: State = {
-  wizard: {},
+  wizard: {
+    firstName: "",
+    lastName: "",
+    email: "",
+    gender: "n/a",
+    department: "",
+    jobTitle: "",
+    country: "",
+    city: "",
+  },
 };
 
 export const slice = createSlice({
@@ -17,7 +27,7 @@ export const slice = createSlice({
       state.wizard = { ...state.wizard, ...action.payload };
     },
     clearWizard: (state) => {
-      state.wizard = {};
+      state.wizard = initialState.wizard;
     },
   },
 });
